@@ -65,4 +65,30 @@ void deleteItem(int &count) {
         cout << "6. Exit" << endl;
         cout << "Enter your choice: ";
         cin >> choice;
+switch (choice) {
+            case 1:
+                addItem(count);
+                break;
+            case 2:
+                displayInventory(count);
+                break;
+            case 3:
+                searchItem(count);
+                break;
+            case 4:
+                editItem(count);
+                break;
+            case 5:
+                deleteItem(count);
+                break;
+            case 6:
+                cout << "Exiting the program..." << endl;
+                break;
+            default:
+                cout << "Invalid choice! Please try again." << endl;
+        }
+    } 
+    while (choice != 6);
 
+    return 0;
+}
