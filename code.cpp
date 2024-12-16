@@ -22,4 +22,18 @@ void addItem(int &count) {
         cout << "Inventory is full!" << endl;
     }
 }
+void searchItem(int count) {
+    string name;
+    cout << "Enter item name to search: ";
+    cin >> name;
+    for (int i = 0; i < count; i++) {
+        if (itemNames[i] == name) {
+            cout << "Item found: " << itemNames[i]
+                 << ", Quantity: " << itemQuantities[i]
+                 << ", Price: " << itemPrices[i] << endl;
+            return;
+        }
+    }
+    cout << "Item not found!" << endl;
+}
 
