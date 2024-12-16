@@ -36,4 +36,21 @@ void searchItem(int count) {
     }
     cout << "Item not found!" << endl;
 }
-
+void deleteItem(int &count) {
+    string name;
+    cout << "Enter item name to delete: ";
+    cin >> name;
+    for (int i = 0; i < count; i++) {
+        if (itemNames[i] == name) {
+            for (int j = i; j < count - 1; j++) {
+                itemNames[j] = itemNames[j + 1];
+                itemQuantities[j] = itemQuantities[j + 1];
+                itemPrices[j] = itemPrices[j + 1];
+            }
+            count--;
+            cout << "Item deleted successfully!" << endl;
+            return;
+        }
+    }
+    cout << "Item not found!" << endl;
+}
