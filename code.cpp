@@ -3,10 +3,12 @@ using namespace std;
 
 const int MAX_ITEMS = 1000;
 
+// arrays declared to store details about item
 string itemNames[MAX_ITEMS];
 int itemQuantities[MAX_ITEMS];
 double itemPrices[MAX_ITEMS];
 
+// Function to add items to inventory
 void addItem(int &count) {
     if (count < MAX_ITEMS) {
         cout << "Enter item name: ";
@@ -22,6 +24,23 @@ void addItem(int &count) {
         cout << "Inventory is full!" << endl;
     }
 }
+
+// Function to display all items in inventory
+void displayInventory(int count) {
+    if (count == 0) {
+        cout << "Inventory is empty!" << endl;
+    } 
+    else {
+        cout << "Inventory list:" << endl;
+        for (int i = 0; i < count; i++) {
+            cout << "Item " << i + 1 << ": " << itemNames[i]
+                 << ", Quantity: " << itemQuantities[i]
+                 << ", Price: " << itemPrices[i] << endl;
+        }
+    }
+}
+
+// Function to search for items in inventory
 void searchItem(int count) {
     string name;
     cout << "Enter item name to search: ";
@@ -36,6 +55,26 @@ void searchItem(int count) {
     }
     cout << "Item not found!" << endl;
 }
+
+// Function to edit existing items in inventory
+void editItem(int count) {
+    string name;
+    cout << "Enter item name to edit: ";
+    cin >> name;
+    for (int i = 0; i < count; i++) {
+        if (itemNames[i] == name) {
+            cout << "Enter new quantity: ";
+            cin >> itemQuantities[i];
+            cout << "Enter new price: ";
+            cin >> itemPrices[i];
+            cout << "Item updated successfully!" << endl;
+            return;
+        }
+    }
+    cout << "Item not found!" << endl;
+}
+
+// Function to delete items from inventory
 void deleteItem(int &count) {
     string name;
     cout << "Enter item name to delete: ";
@@ -54,7 +93,11 @@ void deleteItem(int &count) {
     }
     cout << "Item not found!" << endl;
 }
- int choice;
+
+int main() {
+    int count = 0; 
+
+    int choice;
     do {
         cout << "\nInventory Management System" << endl;
         cout << "1. Add Item" << endl;
@@ -65,7 +108,7 @@ void deleteItem(int &count) {
         cout << "6. Exit" << endl;
         cout << "Enter your choice: ";
         cin >> choice;
-switch (choice) {
+        switch (choice) {
             case 1:
                 addItem(count);
                 break;
