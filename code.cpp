@@ -54,3 +54,15 @@ void deleteItem(int &count) {
     }
     cout << "Item not found!" << endl;
 }
+ int choice;
+    do {
+        cout << "\nInventory Management System" << endl;
+        cout << "1. Add Item" << endl;
+        cout << "2. Display Inventory" << endl;
+        cout << "3. Search Item" << endl;
+        cout << "4. Edit Item" << endl;
+        cout << "5. Delete Item" << endl;
+        cout << "6. Exit" << endl;
+        cout << "Enter your choice: ";
+        cin >> choice;
+
